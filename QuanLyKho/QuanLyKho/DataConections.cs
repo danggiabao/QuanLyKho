@@ -10,7 +10,7 @@ namespace QuanLyKho
 {
 	public class DataConections
 	{
-		string Strcon = @"Data Source=DESKTOP-4IRSTF4;Initial Catalog=quanlykho;Integrated Security=True";
+		string Strcon = @"Data Source=DESKTOP-J3GADKO\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True";
  		public SqlConnection conn = null;
 		public void OpenConnection()
 		{
