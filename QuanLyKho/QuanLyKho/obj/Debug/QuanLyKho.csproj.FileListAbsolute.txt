@@ -39,3 +39,6 @@ C:\Users\dangt\Desktop\Git\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.csp
 C:\Users\dangt\Desktop\Git\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.csproj.CoreCompileInputs.cache
 C:\Users\dangt\Desktop\Git\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.exe
 C:\Users\dangt\Desktop\Git\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.pdb
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\bin\Debug\QuanLyKho.exe.config
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.exe
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.pdb

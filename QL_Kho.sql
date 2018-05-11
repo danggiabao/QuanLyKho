@@ -1,4 +1,4 @@
-CREATE DATABASE quanlykho
+﻿CREATE DATABASE quanlykho
 GO
 USE quanlykho
 GO
@@ -72,3 +72,21 @@ BEGIN
 	SELECT * FROM dbo.DANGNHAP WHERE TaiKhoan = @Username AND MatKhau = @Pass
 END
 GO
+
+--  Proc phần Phiếu Nhập Kho
+CREATE PROC ThemPhieuNhap( @SOPHIEU  varchar(8), @NGAYLAP datetime, @MAKHO  varchar(8)) AS
+BEGIN
+	INSERT INTO dbo.PHIEUNHAP( SOPHIEU, NGAYLAP, MAKHO )
+	VALUES  ( @SOPHIEU, @NGAYLAP, @MAKHO )
+END
+
+CREATE PROC SuaPhieuNhap( @SOPHIEU  varchar(8), @NGAYLAP datetime, @MAKHO  varchar(8)) AS
+BEGIN
+	UPDATE dbo.PHIEUNHAP
+	 SET NGAYLAP = @NGAYLAP ,MAKHO = @MAKHO WHERE SOPHIEU = @SOPHIEU
+END
+
+CREATE PROC XoaPhieuNhap( @SOPHIEU  varchar(8)) AS
+BEGIN
+	 DELETE FROM dbo.PHIEUNHAP WHERE SOPHIEU = @SOPHIEU
+END
