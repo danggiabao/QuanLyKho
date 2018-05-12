@@ -29,6 +29,22 @@
         private void InitializeComponent()
         {
 			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.dtNgayLap = new System.Windows.Forms.DateTimePicker();
+			this.txtSoPhieu = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.cbMaKho = new System.Windows.Forms.ComboBox();
+			this.btnRs = new System.Windows.Forms.Button();
+			this.btnSuaPN = new System.Windows.Forms.Button();
+			this.btnXoaPN = new System.Windows.Forms.Button();
+			this.btnThemPN = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.lvPN = new System.Windows.Forms.ListView();
+			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.btnRsCT = new System.Windows.Forms.Button();
 			this.btnXoaCT = new System.Windows.Forms.Button();
@@ -40,27 +56,11 @@
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.btnThemPN = new System.Windows.Forms.Button();
-			this.btnXoaPN = new System.Windows.Forms.Button();
-			this.btnSuaPN = new System.Windows.Forms.Button();
-			this.btnRs = new System.Windows.Forms.Button();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.lvPN = new System.Windows.Forms.ListView();
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.dtNgayLap = new System.Windows.Forms.DateTimePicker();
-			this.txtSoPhieu = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.cbMaKho = new System.Windows.Forms.ComboBox();
 			this.tabControl1.SuspendLayout();
+			this.tabPage1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			this.tabPage1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -70,158 +70,11 @@
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
-			this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(748, 460);
 			this.tabControl1.TabIndex = 0;
-			// 
-			// tabPage2
-			// 
-			this.tabPage2.BackColor = System.Drawing.Color.CornflowerBlue;
-			this.tabPage2.Controls.Add(this.btnRsCT);
-			this.tabPage2.Controls.Add(this.btnXoaCT);
-			this.tabPage2.Controls.Add(this.btnSuaCT);
-			this.tabPage2.Controls.Add(this.btnThemCT);
-			this.tabPage2.Controls.Add(this.groupBox2);
-			this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tabPage2.Location = new System.Drawing.Point(4, 24);
-			this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.tabPage2.Size = new System.Drawing.Size(740, 432);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Chi tiết phiếu nhập";
-			// 
-			// btnRsCT
-			// 
-			this.btnRsCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRsCT.Location = new System.Drawing.Point(650, 370);
-			this.btnRsCT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.btnRsCT.Name = "btnRsCT";
-			this.btnRsCT.Size = new System.Drawing.Size(76, 36);
-			this.btnRsCT.TabIndex = 11;
-			this.btnRsCT.Text = "Reset";
-			this.btnRsCT.UseVisualStyleBackColor = true;
-			// 
-			// btnXoaCT
-			// 
-			this.btnXoaCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnXoaCT.Location = new System.Drawing.Point(553, 370);
-			this.btnXoaCT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.btnXoaCT.Name = "btnXoaCT";
-			this.btnXoaCT.Size = new System.Drawing.Size(76, 36);
-			this.btnXoaCT.TabIndex = 10;
-			this.btnXoaCT.Text = "Xóa";
-			this.btnXoaCT.UseVisualStyleBackColor = true;
-			// 
-			// btnSuaCT
-			// 
-			this.btnSuaCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSuaCT.Location = new System.Drawing.Point(650, 322);
-			this.btnSuaCT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.btnSuaCT.Name = "btnSuaCT";
-			this.btnSuaCT.Size = new System.Drawing.Size(76, 36);
-			this.btnSuaCT.TabIndex = 9;
-			this.btnSuaCT.Text = "Sửa";
-			this.btnSuaCT.UseVisualStyleBackColor = true;
-			// 
-			// btnThemCT
-			// 
-			this.btnThemCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnThemCT.Location = new System.Drawing.Point(553, 322);
-			this.btnThemCT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.btnThemCT.Name = "btnThemCT";
-			this.btnThemCT.Size = new System.Drawing.Size(76, 36);
-			this.btnThemCT.TabIndex = 7;
-			this.btnThemCT.Text = "Thêm";
-			this.btnThemCT.UseVisualStyleBackColor = true;
-			// 
-			// groupBox2
-			// 
-			this.groupBox2.Controls.Add(this.listView1);
-			this.groupBox2.Location = new System.Drawing.Point(4, 2);
-			this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.groupBox2.Size = new System.Drawing.Size(733, 291);
-			this.groupBox2.TabIndex = 1;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Thông tin chi tiết phiếu nhập";
-			// 
-			// listView1
-			// 
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1.FullRowSelect = true;
-			this.listView1.GridLines = true;
-			this.listView1.Location = new System.Drawing.Point(2, 16);
-			this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(729, 273);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.lvPN);
-			this.groupBox1.Location = new System.Drawing.Point(0, 5);
-			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-			this.groupBox1.Size = new System.Drawing.Size(742, 282);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Thông tin phiếu nhập";
-			// 
-			// btnThemPN
-			// 
-			this.btnThemPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnThemPN.Location = new System.Drawing.Point(563, 323);
-			this.btnThemPN.Margin = new System.Windows.Forms.Padding(2);
-			this.btnThemPN.Name = "btnThemPN";
-			this.btnThemPN.Size = new System.Drawing.Size(76, 36);
-			this.btnThemPN.TabIndex = 6;
-			this.btnThemPN.Text = "Thêm";
-			this.btnThemPN.UseVisualStyleBackColor = true;
-			// 
-			// btnXoaPN
-			// 
-			this.btnXoaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnXoaPN.Location = new System.Drawing.Point(563, 376);
-			this.btnXoaPN.Margin = new System.Windows.Forms.Padding(2);
-			this.btnXoaPN.Name = "btnXoaPN";
-			this.btnXoaPN.Size = new System.Drawing.Size(76, 36);
-			this.btnXoaPN.TabIndex = 7;
-			this.btnXoaPN.Text = "Xóa";
-			this.btnXoaPN.UseVisualStyleBackColor = true;
-			// 
-			// btnSuaPN
-			// 
-			this.btnSuaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSuaPN.Location = new System.Drawing.Point(652, 323);
-			this.btnSuaPN.Margin = new System.Windows.Forms.Padding(2);
-			this.btnSuaPN.Name = "btnSuaPN";
-			this.btnSuaPN.Size = new System.Drawing.Size(76, 36);
-			this.btnSuaPN.TabIndex = 8;
-			this.btnSuaPN.Text = "Sửa";
-			this.btnSuaPN.UseVisualStyleBackColor = true;
-			// 
-			// btnRs
-			// 
-			this.btnRs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnRs.Location = new System.Drawing.Point(652, 376);
-			this.btnRs.Margin = new System.Windows.Forms.Padding(2);
-			this.btnRs.Name = "btnRs";
-			this.btnRs.Size = new System.Drawing.Size(76, 36);
-			this.btnRs.TabIndex = 9;
-			this.btnRs.Text = "Reset";
-			this.btnRs.UseVisualStyleBackColor = true;
 			// 
 			// tabPage1
 			// 
@@ -245,40 +98,6 @@
 			this.tabPage1.Size = new System.Drawing.Size(740, 432);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Phiếu nhập";
-			// 
-			// lvPN
-			// 
-			this.lvPN.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-			this.lvPN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvPN.FullRowSelect = true;
-			this.lvPN.GridLines = true;
-			this.lvPN.Location = new System.Drawing.Point(2, 16);
-			this.lvPN.Margin = new System.Windows.Forms.Padding(2);
-			this.lvPN.Name = "lvPN";
-			this.lvPN.Size = new System.Drawing.Size(738, 264);
-			this.lvPN.TabIndex = 1;
-			this.lvPN.UseCompatibleStateImageBehavior = false;
-			this.lvPN.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "Số Phiếu";
-			this.columnHeader1.Width = 150;
-			// 
-			// columnHeader2
-			// 
-			this.columnHeader2.Text = "Mã Kho";
-			this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.columnHeader2.Width = 150;
-			// 
-			// columnHeader3
-			// 
-			this.columnHeader3.Text = "Ngày Lập";
-			this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.columnHeader3.Width = 150;
 			// 
 			// label3
 			// 
@@ -330,6 +149,191 @@
 			this.cbMaKho.Size = new System.Drawing.Size(121, 23);
 			this.cbMaKho.TabIndex = 16;
 			// 
+			// btnRs
+			// 
+			this.btnRs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnRs.Location = new System.Drawing.Point(652, 376);
+			this.btnRs.Margin = new System.Windows.Forms.Padding(2);
+			this.btnRs.Name = "btnRs";
+			this.btnRs.Size = new System.Drawing.Size(76, 36);
+			this.btnRs.TabIndex = 9;
+			this.btnRs.Text = "Reset";
+			this.btnRs.UseVisualStyleBackColor = true;
+			this.btnRs.Click += new System.EventHandler(this.btnRs_Click);
+			// 
+			// btnSuaPN
+			// 
+			this.btnSuaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSuaPN.Location = new System.Drawing.Point(652, 323);
+			this.btnSuaPN.Margin = new System.Windows.Forms.Padding(2);
+			this.btnSuaPN.Name = "btnSuaPN";
+			this.btnSuaPN.Size = new System.Drawing.Size(76, 36);
+			this.btnSuaPN.TabIndex = 8;
+			this.btnSuaPN.Text = "Sửa";
+			this.btnSuaPN.UseVisualStyleBackColor = true;
+			this.btnSuaPN.Click += new System.EventHandler(this.btnSuaPN_Click);
+			// 
+			// btnXoaPN
+			// 
+			this.btnXoaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnXoaPN.Location = new System.Drawing.Point(563, 376);
+			this.btnXoaPN.Margin = new System.Windows.Forms.Padding(2);
+			this.btnXoaPN.Name = "btnXoaPN";
+			this.btnXoaPN.Size = new System.Drawing.Size(76, 36);
+			this.btnXoaPN.TabIndex = 7;
+			this.btnXoaPN.Text = "Xóa";
+			this.btnXoaPN.UseVisualStyleBackColor = true;
+			this.btnXoaPN.Click += new System.EventHandler(this.btnXoaPN_Click);
+			// 
+			// btnThemPN
+			// 
+			this.btnThemPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThemPN.Location = new System.Drawing.Point(563, 323);
+			this.btnThemPN.Margin = new System.Windows.Forms.Padding(2);
+			this.btnThemPN.Name = "btnThemPN";
+			this.btnThemPN.Size = new System.Drawing.Size(76, 36);
+			this.btnThemPN.TabIndex = 6;
+			this.btnThemPN.Text = "Thêm";
+			this.btnThemPN.UseVisualStyleBackColor = true;
+			this.btnThemPN.Click += new System.EventHandler(this.btnThemPN_Click);
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.lvPN);
+			this.groupBox1.Location = new System.Drawing.Point(0, 5);
+			this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+			this.groupBox1.Size = new System.Drawing.Size(742, 282);
+			this.groupBox1.TabIndex = 0;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Thông tin phiếu nhập";
+			// 
+			// lvPN
+			// 
+			this.lvPN.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+			this.lvPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvPN.FullRowSelect = true;
+			this.lvPN.GridLines = true;
+			this.lvPN.Location = new System.Drawing.Point(2, 16);
+			this.lvPN.Margin = new System.Windows.Forms.Padding(2);
+			this.lvPN.Name = "lvPN";
+			this.lvPN.Size = new System.Drawing.Size(738, 264);
+			this.lvPN.TabIndex = 1;
+			this.lvPN.UseCompatibleStateImageBehavior = false;
+			this.lvPN.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Text = "Số Phiếu";
+			this.columnHeader1.Width = 150;
+			// 
+			// columnHeader2
+			// 
+			this.columnHeader2.Text = "Mã Kho";
+			this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader2.Width = 150;
+			// 
+			// columnHeader3
+			// 
+			this.columnHeader3.Text = "Ngày Lập";
+			this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader3.Width = 150;
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.BackColor = System.Drawing.Color.CornflowerBlue;
+			this.tabPage2.Controls.Add(this.btnRsCT);
+			this.tabPage2.Controls.Add(this.btnXoaCT);
+			this.tabPage2.Controls.Add(this.btnSuaCT);
+			this.tabPage2.Controls.Add(this.btnThemCT);
+			this.tabPage2.Controls.Add(this.groupBox2);
+			this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabPage2.Location = new System.Drawing.Point(4, 24);
+			this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+			this.tabPage2.Size = new System.Drawing.Size(740, 432);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Chi tiết phiếu nhập";
+			// 
+			// btnRsCT
+			// 
+			this.btnRsCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnRsCT.Location = new System.Drawing.Point(650, 370);
+			this.btnRsCT.Margin = new System.Windows.Forms.Padding(2);
+			this.btnRsCT.Name = "btnRsCT";
+			this.btnRsCT.Size = new System.Drawing.Size(76, 36);
+			this.btnRsCT.TabIndex = 11;
+			this.btnRsCT.Text = "Reset";
+			this.btnRsCT.UseVisualStyleBackColor = true;
+			// 
+			// btnXoaCT
+			// 
+			this.btnXoaCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnXoaCT.Location = new System.Drawing.Point(553, 370);
+			this.btnXoaCT.Margin = new System.Windows.Forms.Padding(2);
+			this.btnXoaCT.Name = "btnXoaCT";
+			this.btnXoaCT.Size = new System.Drawing.Size(76, 36);
+			this.btnXoaCT.TabIndex = 10;
+			this.btnXoaCT.Text = "Xóa";
+			this.btnXoaCT.UseVisualStyleBackColor = true;
+			// 
+			// btnSuaCT
+			// 
+			this.btnSuaCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSuaCT.Location = new System.Drawing.Point(650, 322);
+			this.btnSuaCT.Margin = new System.Windows.Forms.Padding(2);
+			this.btnSuaCT.Name = "btnSuaCT";
+			this.btnSuaCT.Size = new System.Drawing.Size(76, 36);
+			this.btnSuaCT.TabIndex = 9;
+			this.btnSuaCT.Text = "Sửa";
+			this.btnSuaCT.UseVisualStyleBackColor = true;
+			// 
+			// btnThemCT
+			// 
+			this.btnThemCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnThemCT.Location = new System.Drawing.Point(553, 322);
+			this.btnThemCT.Margin = new System.Windows.Forms.Padding(2);
+			this.btnThemCT.Name = "btnThemCT";
+			this.btnThemCT.Size = new System.Drawing.Size(76, 36);
+			this.btnThemCT.TabIndex = 7;
+			this.btnThemCT.Text = "Thêm";
+			this.btnThemCT.UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.listView1);
+			this.groupBox2.Location = new System.Drawing.Point(4, 2);
+			this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+			this.groupBox2.Size = new System.Drawing.Size(733, 291);
+			this.groupBox2.TabIndex = 1;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Thông tin chi tiết phiếu nhập";
+			// 
+			// listView1
+			// 
+			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listView1.FullRowSelect = true;
+			this.listView1.GridLines = true;
+			this.listView1.Location = new System.Drawing.Point(2, 16);
+			this.listView1.Margin = new System.Windows.Forms.Padding(2);
+			this.listView1.Name = "listView1";
+			this.listView1.Size = new System.Drawing.Size(729, 273);
+			this.listView1.TabIndex = 0;
+			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.listView1.View = System.Windows.Forms.View.Details;
+			// 
 			// frmNhapKho
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,17 +341,17 @@
 			this.BackColor = System.Drawing.Color.CornflowerBlue;
 			this.ClientSize = new System.Drawing.Size(748, 460);
 			this.Controls.Add(this.tabControl1);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "frmNhapKho";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Nhập kho";
 			this.Load += new System.EventHandler(this.frmNhapKho_Load);
 			this.tabControl1.ResumeLayout(false);
-			this.tabPage2.ResumeLayout(false);
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.tabPage2.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
