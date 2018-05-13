@@ -215,8 +215,7 @@ namespace QuanLyKho
 			dtNgayLap.Value = dt;
 		}
 		#endregion
-
-		/// <summary>
+ 		/// <summary>
 		/// ////////////////////////////////
 		/// </summary>
  		#region Chi Tiết Phiếu Nhập
@@ -332,6 +331,7 @@ namespace QuanLyKho
 				item.SubItems.Add(txtsoluong.Text);
 
 				lvPN.Items.Add(item);
+				ThemCTPN_Database();
  				MessageBox.Show("Thêm thành công!");
 			}
 			
@@ -348,6 +348,7 @@ namespace QuanLyKho
 			liv.SubItems[2].Text = txtsoluong.Text;
 
 			lvPN.Items.Add(liv);
+			SuaCTPN_Database();
  			MessageBox.Show("Sửa thành công!");
 		}
 
@@ -363,6 +364,7 @@ namespace QuanLyKho
 						i--;
 					}
 				}
+				XoaCTPN_Database();
  				MessageBox.Show("Xóa thành công!");
 			}
 		}
@@ -391,8 +393,52 @@ namespace QuanLyKho
 		}
 
 		#endregion
+		#region Database
+		public void ThemCTPN_Database()
+		{
+			//( SOPHIEU, MAVT, DONVITINH, SOLUONG )
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "ThemCTPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+
+ 			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = cbMaPhieu.Text;
+			cmd.Parameters.Add("@MAVT", SqlDbType.NVarChar).Value = cbMaVT.Text;
+			cmd.Parameters.Add("@DONVITINH", SqlDbType.NVarChar).Value = txtdonvi.Text;
+			cmd.Parameters.Add("@SOLUONG", SqlDbType.Int).Value =int.Parse( txtsoluong.Text);
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
+		public void SuaCTPN_Database()
+		{
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "SuaCTPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+
+ 			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = cbMaPhieu.Text;
+			cmd.Parameters.Add("@MAVT", SqlDbType.NVarChar).Value = cbMaVT.Text;
+			cmd.Parameters.Add("@DONVITINH", SqlDbType.NVarChar).Value = txtdonvi.Text;
+			cmd.Parameters.Add("@SOLUONG", SqlDbType.Int).Value = int.Parse(txtsoluong.Text);
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
+		public void XoaCTPN_Database()
+		{
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "XoaCTPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+
+ 			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = cbMaPhieu.Text;
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
+
+		//	public void
 		#endregion
- 
+		#endregion
+
 
 	}
 }
