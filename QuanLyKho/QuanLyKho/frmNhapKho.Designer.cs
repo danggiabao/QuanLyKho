@@ -51,11 +51,19 @@
 			this.btnSuaCT = new System.Windows.Forms.Button();
 			this.btnThemCT = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.listView1 = new System.Windows.Forms.ListView();
+			this.lvCTPN = new System.Windows.Forms.ListView();
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.cbMaPhieu = new System.Windows.Forms.ComboBox();
+			this.cbMaVT = new System.Windows.Forms.ComboBox();
+			this.txtdonvi = new System.Windows.Forms.TextBox();
+			this.txtsoluong = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -148,6 +156,7 @@
 			this.cbMaKho.Name = "cbMaKho";
 			this.cbMaKho.Size = new System.Drawing.Size(121, 23);
 			this.cbMaKho.TabIndex = 16;
+			this.cbMaKho.SelectedIndexChanged += new System.EventHandler(this.cbMaKho_SelectedIndexChanged);
 			// 
 			// btnRs
 			// 
@@ -247,6 +256,14 @@
 			// tabPage2
 			// 
 			this.tabPage2.BackColor = System.Drawing.Color.CornflowerBlue;
+			this.tabPage2.Controls.Add(this.label7);
+			this.tabPage2.Controls.Add(this.label6);
+			this.tabPage2.Controls.Add(this.label5);
+			this.tabPage2.Controls.Add(this.label4);
+			this.tabPage2.Controls.Add(this.txtsoluong);
+			this.tabPage2.Controls.Add(this.txtdonvi);
+			this.tabPage2.Controls.Add(this.cbMaVT);
+			this.tabPage2.Controls.Add(this.cbMaPhieu);
 			this.tabPage2.Controls.Add(this.btnRsCT);
 			this.tabPage2.Controls.Add(this.btnXoaCT);
 			this.tabPage2.Controls.Add(this.btnSuaCT);
@@ -271,6 +288,7 @@
 			this.btnRsCT.TabIndex = 11;
 			this.btnRsCT.Text = "Reset";
 			this.btnRsCT.UseVisualStyleBackColor = true;
+			this.btnRsCT.Click += new System.EventHandler(this.btnRsCT_Click);
 			// 
 			// btnXoaCT
 			// 
@@ -282,6 +300,7 @@
 			this.btnXoaCT.TabIndex = 10;
 			this.btnXoaCT.Text = "Xóa";
 			this.btnXoaCT.UseVisualStyleBackColor = true;
+			this.btnXoaCT.Click += new System.EventHandler(this.btnXoaCT_Click);
 			// 
 			// btnSuaCT
 			// 
@@ -293,6 +312,7 @@
 			this.btnSuaCT.TabIndex = 9;
 			this.btnSuaCT.Text = "Sửa";
 			this.btnSuaCT.UseVisualStyleBackColor = true;
+			this.btnSuaCT.Click += new System.EventHandler(this.btnSuaCT_Click);
 			// 
 			// btnThemCT
 			// 
@@ -304,10 +324,11 @@
 			this.btnThemCT.TabIndex = 7;
 			this.btnThemCT.Text = "Thêm";
 			this.btnThemCT.UseVisualStyleBackColor = true;
+			this.btnThemCT.Click += new System.EventHandler(this.btnThemCT_Click);
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.listView1);
+			this.groupBox2.Controls.Add(this.lvCTPN);
 			this.groupBox2.Location = new System.Drawing.Point(4, 2);
 			this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.groupBox2.Name = "groupBox2";
@@ -317,23 +338,115 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Thông tin chi tiết phiếu nhập";
 			// 
-			// listView1
+			// lvCTPN
 			// 
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.lvCTPN.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-			this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1.FullRowSelect = true;
-			this.listView1.GridLines = true;
-			this.listView1.Location = new System.Drawing.Point(2, 16);
-			this.listView1.Margin = new System.Windows.Forms.Padding(2);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(729, 273);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
+			this.lvCTPN.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvCTPN.FullRowSelect = true;
+			this.lvCTPN.GridLines = true;
+			this.lvCTPN.Location = new System.Drawing.Point(2, 16);
+			this.lvCTPN.Margin = new System.Windows.Forms.Padding(2);
+			this.lvCTPN.Name = "lvCTPN";
+			this.lvCTPN.Size = new System.Drawing.Size(729, 273);
+			this.lvCTPN.TabIndex = 0;
+			this.lvCTPN.UseCompatibleStateImageBehavior = false;
+			this.lvCTPN.View = System.Windows.Forms.View.Details;
+			this.lvCTPN.SelectedIndexChanged += new System.EventHandler(this.lvCTPN_SelectedIndexChanged);
+			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Text = "Mã Phiếu";
+			this.columnHeader4.Width = 150;
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Mã Vật Tư";
+			this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader5.Width = 150;
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Đơn Vị Tính";
+			this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader6.Width = 150;
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "Số Lượng";
+			this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.columnHeader7.Width = 150;
+			// 
+			// cbMaPhieu
+			// 
+			this.cbMaPhieu.FormattingEnabled = true;
+			this.cbMaPhieu.Location = new System.Drawing.Point(72, 309);
+			this.cbMaPhieu.Name = "cbMaPhieu";
+			this.cbMaPhieu.Size = new System.Drawing.Size(170, 23);
+			this.cbMaPhieu.TabIndex = 12;
+			this.cbMaPhieu.SelectedIndexChanged += new System.EventHandler(this.cbMaPhieu_SelectedIndexChanged);
+			// 
+			// cbMaVT
+			// 
+			this.cbMaVT.FormattingEnabled = true;
+			this.cbMaVT.Location = new System.Drawing.Point(72, 370);
+			this.cbMaVT.Name = "cbMaVT";
+			this.cbMaVT.Size = new System.Drawing.Size(170, 23);
+			this.cbMaVT.TabIndex = 13;
+			this.cbMaVT.SelectedIndexChanged += new System.EventHandler(this.cbMaVT_SelectedIndexChanged);
+			// 
+			// txtdonvi
+			// 
+			this.txtdonvi.Location = new System.Drawing.Point(344, 309);
+			this.txtdonvi.Name = "txtdonvi";
+			this.txtdonvi.Size = new System.Drawing.Size(155, 21);
+			this.txtdonvi.TabIndex = 14;
+			// 
+			// txtsoluong
+			// 
+			this.txtsoluong.Location = new System.Drawing.Point(344, 370);
+			this.txtsoluong.Name = "txtsoluong";
+			this.txtsoluong.Size = new System.Drawing.Size(155, 21);
+			this.txtsoluong.TabIndex = 14;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(3, 309);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(69, 15);
+			this.label4.TabIndex = 15;
+			this.label4.Text = "Mã Phiếu : ";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(3, 373);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(68, 15);
+			this.label5.TabIndex = 16;
+			this.label5.Text = "Mã Vật Tư :";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(259, 312);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(79, 15);
+			this.label6.TabIndex = 17;
+			this.label6.Text = "Đơn Vị Tính : ";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(263, 376);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(69, 15);
+			this.label7.TabIndex = 18;
+			this.label7.Text = "Số Lượng : ";
 			// 
 			// frmNhapKho
 			// 
@@ -352,6 +465,7 @@
 			this.tabPage1.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -362,7 +476,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvCTPN;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -387,5 +501,13 @@
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox txtsoluong;
+		private System.Windows.Forms.TextBox txtdonvi;
+		private System.Windows.Forms.ComboBox cbMaVT;
+		private System.Windows.Forms.ComboBox cbMaPhieu;
 	}
 }
