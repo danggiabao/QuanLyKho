@@ -225,6 +225,7 @@
 			this.lvPN.TabIndex = 1;
 			this.lvPN.UseCompatibleStateImageBehavior = false;
 			this.lvPN.View = System.Windows.Forms.View.Details;
+			this.lvPN.SelectedIndexChanged += new System.EventHandler(this.lvPN_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 

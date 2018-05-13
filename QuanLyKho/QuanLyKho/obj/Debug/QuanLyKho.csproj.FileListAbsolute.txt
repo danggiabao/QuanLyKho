@@ -57,3 +57,14 @@ C:\Users\Tony Nguyen\Desktop\Git\Git -reference\QuanLyKho\QuanLyKho\QuanLyKho\ob
 C:\Users\Tony Nguyen\Desktop\Git\Git -reference\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.csproj.CoreCompileInputs.cache
 C:\Users\Tony Nguyen\Desktop\Git\Git -reference\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.exe
 C:\Users\Tony Nguyen\Desktop\Git\Git -reference\QuanLyKho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.pdb
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\bin\Debug\QuanLyKho.exe
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\bin\Debug\QuanLyKho.pdb
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.csprojResolveAssemblyReference.cache
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmKho.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmLogin.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmNhapKho.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmTrangChu.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmVatTu.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.frmXuatKho.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.Properties.Resources.resources
+C:\Users\Luu Trung Kien\Desktop\QL_Kho\QuanLyKho\QuanLyKho\obj\Debug\QuanLyKho.csproj.GenerateResource.Cache

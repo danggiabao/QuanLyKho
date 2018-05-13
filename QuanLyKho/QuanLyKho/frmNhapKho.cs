@@ -22,7 +22,7 @@ namespace QuanLyKho
         {
 			btnThemPN.Enabled = true;
 			btnSuaPN.Enabled = false;
-			btnXoaCT.Enabled = false;
+			btnXoaPN.Enabled = false;
 
 			ShowData();
 			ShowMaKho();
@@ -73,12 +73,10 @@ namespace QuanLyKho
 			reader.Close();
 		}
 		#endregion
-		int idx = 0;
-		#region Controller
+ 		#region Controller
 		private void btnThemPN_Click(object sender, EventArgs e)
 		{
-			idx = 1;
-			bool check = true;
+ 			bool check = true;
 			int i = 0;
 
 			if (i < 10) { txtSoPhieu.Text = "Phieu 0" + i; }
@@ -98,13 +96,14 @@ namespace QuanLyKho
 				item.SubItems.Add(cbMaKho.Text);
 				item.SubItems.Add(dtNgayLap.Text);
 				lvPN.Items.Add(item);
+				ThemPN_Database();
+				MessageBox.Show("Thêm thành công!");
 			}
 		}
 
 		private void btnSuaPN_Click(object sender, EventArgs e)
 		{
-			idx = 2;
-			if (lvPN.SelectedItems != null)
+ 			if (lvPN.SelectedItems != null)
 			{
 				for (int i = 0; i < lvPN.Items.Count; i++)
 				{
@@ -114,13 +113,14 @@ namespace QuanLyKho
 						i--;
 					}
 				}
+				XoaPN_Database();
+				MessageBox.Show("Xóa thành công!");
 			}
 		}
 
 		private void btnXoaPN_Click(object sender, EventArgs e)
 		{
-			idx = 3;
-			btnThemPN.Enabled = true;
+ 			btnThemPN.Enabled = true;
 			if (lvPN.SelectedItems.Count == 0) return;
 			ListViewItem liv = lvPN.SelectedItems[0];
 			liv.SubItems[0].Text = txtSoPhieu.Text;
@@ -128,6 +128,8 @@ namespace QuanLyKho
 			liv.SubItems[2].Text = dtNgayLap.Text;
 
 			lvPN.Items.Add(liv);
+			SuaPN_Database();
+			MessageBox.Show("Sửa thành công!");
 		}
 		private void btnRs_Click(object sender, EventArgs e)
 		{
@@ -139,7 +141,60 @@ namespace QuanLyKho
 			dtNgayLap.ResetText();
 		}
 		#endregion
+		#region Database
+		public void ThemPN_Database()
+		{
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "ThemPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+			//( SOPHIEU, NGAYLAP, MAKHO )
+			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
+			cmd.Parameters.Add("@NGAYLAP", SqlDbType.Date).Value = dtNgayLap.Text;
+			cmd.Parameters.Add("@MAKHO", SqlDbType.NVarChar).Value = cbMaKho.Text;
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
+		public void SuaPN_Database()
+		{
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "SuaPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+			//( SOPHIEU, NGAYLAP, MAKHO )
+			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
+			cmd.Parameters.Add("@NGAYLAP", SqlDbType.Date).Value = dtNgayLap.Text;
+			cmd.Parameters.Add("@MAKHO", SqlDbType.NVarChar).Value = cbMaKho.Text;
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
+		public void XoaPN_Database()
+		{
+			cmd.CommandType = CommandType.StoredProcedure;
+			cmd.CommandText = "XoaPhieuNhap";
+			cmd.Connection = db.conn;
+			db.OpenConnection();
+			//( SOPHIEU, NGAYLAP, MAKHO )
+			cmd.Parameters.Add("@SOPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
+			cmd.ExecuteNonQuery();
+			db.CloseConnection();
+		}
 
+		//	public void
+		#endregion
+		private void lvPN_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			btnThemPN.Enabled = false;
+			btnSuaPN.Enabled = true;
+			btnXoaPN.Enabled = true;
+			if (lvPN.SelectedIndices.Count == 0) return;
+			ListViewItem liv = lvPN.SelectedItems[0];
+			txtSoPhieu.Text = liv.SubItems[0].Text;
+			cbMaKho.Text = liv.SubItems[1].Text;
 
+			string[] date = liv.SubItems[3].Text.Split('/');
+			DateTime dt = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
+			dtNgayLap.Value = dt;
+		}
 	}
 }
