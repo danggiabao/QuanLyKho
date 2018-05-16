@@ -20,15 +20,17 @@ namespace QuanLyKho
         DataConections dt = new DataConections();
         SqlCommand cmd = new SqlCommand();
         List<string> lst = new List<string>();
-        
+        List<string> lst2 = new List<string>();
+
         #region Listview - Data - Combobox
         private void frmXuatKho_Load(object sender, EventArgs e)
         {
-            ShowData();
-            cbbMaKho();
-            ShowDataCTPX();
-            ShowMaPX();
-            ShowMaVT();
+            this.ShowData();
+            this.cbbMaKho();
+
+            this.ShowDataCTPX();
+            this.ShowMaPX();
+            this.ShowMaVT();
         }
         private void lvPN_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -36,7 +38,7 @@ namespace QuanLyKho
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             txtSoPhieu.Enabled = false;
-            if (lvPX.SelectedIndices.Count == 0) return;
+            if (lvPX.SelectedItems.Count == 0) return;
             ListViewItem liv = lvPX.SelectedItems[0];
             txtSoPhieu.Text = liv.SubItems[0].Text;
             cbMaKho.Text = liv.SubItems[1].Text;
@@ -95,25 +97,31 @@ namespace QuanLyKho
         private void btnThemPN_Click(object sender, EventArgs e)
         {
             bool check = true;
-            
-            foreach (string x in lst)
+            if ((txtSoPhieu.Text == "") || (cbMaKho.Text == ""))
+                MessageBox.Show("Nhập Mã phiếu và Mã kho");
+            else
             {
-                if ((x.Contains(txtSoPhieu.Text)) && (txtSoPhieu.Text.Contains(x)))
+                foreach (string x in lst)
                 {
-                    check = false;
-                    break;
+                    if ((x.Contains(txtSoPhieu.Text)) && (txtSoPhieu.Text.Contains(x)))
+                    {
+                        check = false;
+                        break;
+                    }
+                    check = true;
                 }
-                check = true;
-            }
-            if (check == true)
-            {
-                ListViewItem item = new ListViewItem(txtSoPhieu.Text);
-                item.SubItems.Add(MaKho);
-                item.SubItems.Add(dtNgayXuat.Text);
-                lvPX.Items.Add(item);
-                ThemPX_Database();
-                MessageBox.Show("Thêm thành công!");
-                
+                if (check == true)
+                {
+                    ListViewItem item = new ListViewItem(txtSoPhieu.Text);
+                    item.SubItems.Add(MaKho);
+                    item.SubItems.Add(dtNgayXuat.Text);
+                    lvPX.Items.Add(item);
+                    ThemPX_Database();
+                    MessageBox.Show("Thêm thành công!");
+
+                }
+                else
+                    MessageBox.Show("Mã phiếu đã tồn tại");
             }
         }
 
@@ -174,8 +182,10 @@ namespace QuanLyKho
             cmd.Parameters.Add("@MAPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
             cmd.Parameters.Add("@NGAYXUAT", SqlDbType.Date).Value = dtNgayXuat.Text;
             cmd.Parameters.Add("@MAKHO", SqlDbType.NVarChar).Value = cbMaKho.Text;
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
+            int ret = cmd.ExecuteNonQuery();
+            lvPX.Items.Clear();
+            if (ret > 0)
+                ShowData();
         }
         public void SuaPX_Database()
         {
@@ -188,12 +198,11 @@ namespace QuanLyKho
             cmd.Parameters.Add("@MAPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
             cmd.Parameters.Add("@NGAYXUAT", SqlDbType.Date).Value = dtNgayXuat.Text;
             cmd.Parameters.Add("@MAKHO", SqlDbType.NVarChar).Value = cbMaKho.Text;
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
-            /*int ret = cmd.ExecuteNonQuery();
+            
+            int ret = cmd.ExecuteNonQuery();
             lvPX.Items.Clear();
             if (ret > 0)
-                ShowData();*/
+                ShowData();
         }
         public void XoaPX_Database()
         {
@@ -203,12 +212,11 @@ namespace QuanLyKho
             cmd.Connection = dt.conn;
             
             cmd.Parameters.Add("@MAPHIEU", SqlDbType.NVarChar).Value = txtSoPhieu.Text;
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
-            /*int ret = cmd.ExecuteNonQuery();
+            
+            int ret = cmd.ExecuteNonQuery();
             lvPX.Items.Clear();
             if (ret > 0)
-                ShowData();*/
+                ShowData();
         }
         #endregion
         /// <summary>
@@ -226,7 +234,7 @@ namespace QuanLyKho
             btnSuaCT.Enabled = true;
             btnXoaCT.Enabled = true;
             
-            if (lvCTPX.SelectedIndices.Count == 0) return;
+            if (lvCTPX.SelectedItems.Count == 0) return;
             ListViewItem liv = lvCTPX.SelectedItems[0];
             cbMaPhieu.Text = liv.SubItems[0].Text;
             cbMaVT.Text = liv.SubItems[1].Text;
@@ -236,23 +244,25 @@ namespace QuanLyKho
         public void ShowDataCTPX()
         {
             dt.OpenConnection();
+            btnSuaCT.Enabled = false;
+            btnXoaCT.Enabled = false;
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from CHITIETPHIEUXUAT";
             cmd.Connection = dt.conn;
 
             SqlDataReader reader = cmd.ExecuteReader();
-            lvPX.Items.Clear();
+            lvCTPX.Items.Clear();
 
             while (reader.Read())
             {
                 ListViewItem item = new ListViewItem(reader.GetString(0));
                 item.SubItems.Add(reader.GetString(1));
                 item.SubItems.Add(reader.GetString(2));
-                item.SubItems.Add(reader.GetString(3));
+                item.SubItems.Add(reader.GetInt32(3).ToString());
 
                 lstCT.Add(reader.GetString(0));
                 lstMaVT.Add(reader.GetString(1));
-                lvPX.Items.Add(item);
+                lvCTPX.Items.Add(item);
             }
             reader.Close();
         }
@@ -261,7 +271,7 @@ namespace QuanLyKho
         {
             dt.OpenConnection();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from KHO";
+            cmd.CommandText = "select * from PHIEUXUAT";
             cmd.Connection = dt.conn;
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -269,9 +279,9 @@ namespace QuanLyKho
             List<string> lstSoPhieu = new List<string>();
             while (reader.Read())
             {
-                string MaKho = reader.GetString(0);
-                string TenKho = reader.GetString(1);
-                cbMaPhieu.Items.Add(MaKho + "-" + TenKho);
+                string PX = reader.GetString(0);
+                
+                cbMaPhieu.Items.Add(PX);
             }
             reader.Close();
         }
@@ -279,6 +289,7 @@ namespace QuanLyKho
         public void ShowMaVT()
         {
             dt.OpenConnection();
+            
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from VATTU";
             cmd.Connection = dt.conn;
@@ -290,7 +301,7 @@ namespace QuanLyKho
             {
                 string MaVT = reader.GetString(0);
                 string TenVT = reader.GetString(1);
-                cbMaVT.Items.Add(MaVT + "-" + TenVT);
+                cbMaVT.Items.Add(MaVT);
             }
             reader.Close();
         }
@@ -311,7 +322,7 @@ namespace QuanLyKho
         #region DatabaseCTPX
         public void ThemCTPX_Database()
         {
-            //( SOPHIEU, MAVT, DONVITINH, SOLUONG )
+            
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "ThemCTPX";
             cmd.Connection = dt.conn;
@@ -321,8 +332,11 @@ namespace QuanLyKho
             cmd.Parameters.Add("@MAVT", SqlDbType.NVarChar).Value = cbMaVT.Text;
             cmd.Parameters.Add("@DONVITINH", SqlDbType.NVarChar).Value = txtdonvi.Text;
             cmd.Parameters.Add("@SOLUONG", SqlDbType.Int).Value = int.Parse(txtsoluong.Text);
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
+            
+            int ret = cmd.ExecuteNonQuery();
+            lvCTPX.Items.Clear();
+            if (ret > 0)
+                ShowDataCTPX();
         }
         public void SuaCTPX_Database()
         {
@@ -335,8 +349,10 @@ namespace QuanLyKho
             cmd.Parameters.Add("@MAVT", SqlDbType.NVarChar).Value = cbMaVT.Text;
             cmd.Parameters.Add("@DONVITINH", SqlDbType.NVarChar).Value = txtdonvi.Text;
             cmd.Parameters.Add("@SOLUONG", SqlDbType.Int).Value = int.Parse(txtsoluong.Text);
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
+            int ret = cmd.ExecuteNonQuery();
+            lvCTPX.Items.Clear();
+            if (ret > 0)
+                ShowDataCTPX();
         }
         public void XoaCTPX_Database()
         {
@@ -345,43 +361,46 @@ namespace QuanLyKho
             cmd.Connection = dt.conn;
             dt.OpenConnection();
             cmd.Parameters.Add("@MAPHIEU", SqlDbType.NVarChar).Value = cbMaPhieu.Text;
-            cmd.ExecuteNonQuery();
-            dt.CloseConnection();
+            int ret = cmd.ExecuteNonQuery();
+            lvCTPX.Items.Clear();
+            if (ret > 0)
+                ShowDataCTPX();
         }
         #endregion
         #region Button
         private void btnThemCT_Click(object sender, EventArgs e)
         {
             bool check = true;
-            bool check1 = true;
-            foreach (string x in lstCT)
-            {
-                if ((x.Contains(MaPhieu)) && (x.Contains(MaPhieu)))
-                {
-                    check = false;
-                    break;
-                }
-                check = true;
-            }
-            foreach (string y in lstMaVT)
-            {
-                if (y.Contains(MaVT))
-                {
-                    check1 = false;
-                    break;
-                }
-                check1 = true;
-            }
-            if (check == true && check1 == true)
-            {
-                ListViewItem item = new ListViewItem(MaPhieu);
-                item.SubItems.Add(MaVT);
-                item.SubItems.Add(txtdonvi.Text);
-                item.SubItems.Add(txtsoluong.Text);
 
-                lvPX.Items.Add(item);
-                ThemCTPX_Database();
-                MessageBox.Show("Thêm thành công!");
+            if ((cbMaPhieu.Text == "") || (cbMaVT.Text == ""))
+                MessageBox.Show("Nhập Mã phiếu và Mã vật tư");
+            else
+            {
+                foreach (string x in lstCT)
+                {
+                    if ((x.Contains(MaPhieu)) && (MaPhieu.Contains(x)))
+                    {
+                        check = false;
+                        break;
+                    }
+                    check = true;
+
+                }
+
+
+                if (check == true)
+                {
+                    ListViewItem item = new ListViewItem(MaPhieu);
+                    item.SubItems.Add(MaVT);
+                    item.SubItems.Add(txtdonvi.Text);
+                    item.SubItems.Add(txtsoluong.Text);
+
+                    lvCTPX.Items.Add(item);
+                    ThemCTPX_Database();
+                    MessageBox.Show("Thêm thành công!");
+                }
+                else
+                    MessageBox.Show("Chi tiết phiếu đã tồn tại");
             }
         }
 
@@ -395,7 +414,7 @@ namespace QuanLyKho
             liv.SubItems[2].Text = txtdonvi.Text;
             liv.SubItems[2].Text = txtsoluong.Text;
 
-            lvPX.Items.Add(liv);
+            lvCTPX.Items.Add(liv);
             SuaCTPX_Database();
             MessageBox.Show("Sửa thành công!");
         }

@@ -462,7 +462,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(997, 566);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.TabIndex = 25;
             // 
             // frmXuatKho
             // 
